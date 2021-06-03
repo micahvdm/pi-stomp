@@ -19,7 +19,7 @@ set +e
 
 MODUI_ROOT=/usr/lib/python3/dist-packages/mod
 MODUI_HTML=/usr/share/mod/html
-MODEP_SCRIPTS=/usr/modep/scripts
+MODEP_SCRIPTS=/usr/mod/scripts
 
 sudo patch -b -N -u $MODUI_ROOT/host.py -i setup/mod-tweaks/host.diff
 

@@ -37,6 +37,6 @@ tar xvf lilv-0.24.4.tar.bz2
 pushd lilv-0.24.4
 
 # configure, build, install
-python3 ./waf configure --prefix=/usr/local  --static --static-progs --no-shared --no-utils --no-bash-completion --bindings --pythondir=/usr/local/lib/python3.7/dist-packages
+python3 ./waf configure --prefix=/usr/local  --static --static-progs --no-shared --no-utils --no-bash-completion --pythondir=/usr/local/lib/python3.7/dist-packages
 python3 ./waf build
 sudo python3 ./waf install

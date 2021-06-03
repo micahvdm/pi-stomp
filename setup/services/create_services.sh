@@ -17,4 +17,10 @@
 
 sudo cp setup/services/*.service /usr/lib/systemd/system/
 sudo ln -sf /usr/lib/systemd/system/mod-ala-pi-stomp.service /etc/systemd/system/multi-user.target.wants
-sudo ln -sf /usr/lib/systemd/system/ttymidi.service /etc/systemd/system/multi-user.target.wants
+sudo ln -sf /usr/lib/systemd/system/browsepy.service /etc/systemd/system/multi-user.target.wants
+sudo ln -sf /usr/lib/systemd/system/mod-ttymidi.service /etc/systemd/system/multi-user.target.wants
+sudo ln -sf /usr/lib/systemd/system/mod-host.service /etc/systemd/system/multi-user.target.wants
+sudo ln -sf /usr/lib/systemd/system/mod-ui.service /etc/systemd/system/multi-user.target.wants
+sudo ln -sf /usr/lib/systemd/system/mod-monitor.service /etc/systemd/system/multi-user.target.wants
+sudo ln -sf /usr/lib/systemd/system/amidithru.service /etc/systemd/system/multi-user.target.wants
+sudo ln -sf /usr/lib/systemd/system/touchosc2midi.service /etc/systemd/system/multi-user.target.wants

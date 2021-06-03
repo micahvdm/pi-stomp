@@ -67,9 +67,9 @@ class Lcd(ABC):
 
         # Element dimensions
         self.plugin_height = 11
-        self.plugin_width = 24
+        self.plugin_width = 26
         self.plugin_width_medium = 30
-        self.plugin_bypass_thickness = 2
+        self.plugin_bypass_thickness = 1
         self.plugin_label_length = 7
         self.footswitch_width = 26
 
@@ -89,19 +89,20 @@ class Lcd(ABC):
                      ImageDraw.Draw(self.images[6]), ImageDraw.Draw(self.images[7])]
 
         # Load fonts
-        self.splash_font = ImageFont.truetype("DejaVuSans-Bold.ttf", 18)
-        self.title_font = ImageFont.truetype("DejaVuSans-Bold.ttf", 11)
-        self.label_font = ImageFont.truetype("DejaVuSans-Bold.ttf", 10)
-        self.small_bold_font = ImageFont.truetype("DejaVuSansMono-Bold.ttf", 8)
-        self.small_font = ImageFont.truetype("DejaVuSansMono.ttf", 8)
-        #self.small_font = ImageFont.truetype(os.path.join(cwd, "fonts", "EtBt6001-JO47.ttf"), 6)
+        self.splash_font = ImageFont.truetype(os.path.join(cwd, "fonts", "pixel-inversions.ttf"), 11)
+        self.title_font = ImageFont.truetype(os.path.join(cwd, "fonts", "pixel-inversions.ttf"), 7)
+        self.label_font = ImageFont.truetype(os.path.join(cwd, "fonts", "pixelmix.ttf"), 7)
+        self.small_bold_font = ImageFont.truetype(os.path.join(cwd, "fonts", "pixelmix.ttf"), 7)
+        #self.small_font = ImageFont.truetype("DejaVuSans.ttf", 9)
+        self.small_font = ImageFont.truetype(os.path.join(cwd, "fonts", "pixelmix.ttf"), 7)
 
         # Splash
         text_im = Image.new('L', (103, 63))
         draw = ImageDraw.Draw(text_im)
-        draw.text((7, 20), "pi Stomp!", True, self.splash_font)
+        draw.text((15, 30), "DivideCo", True, self.splash_font)
+#	draw.text((10, 40), "Pedals", True, self.splash_font)
         self.splash = Image.new('L', (self.width, self.height))
-        self.splash.paste(text_im.rotate(24), (0, 0, 103, 63))
+        self.splash.paste(text_im.rotate(0), (0, 0, 103, 63))
         self.splash_show()
 
 
@@ -172,7 +173,7 @@ class Lcd(ABC):
     def menu_show(self, page_title, menu_items):
         # Title (plugin name)
         self.erase_zone(0)
-        self.draw[0].text((0, -2), page_title, True, self.title_font)
+        self.draw[0].text((0, 0), page_title, True, self.title_font)
         self.refresh_zone(0)
 
         self.menu_image.paste(0, (0, 0, self.width, self.menu_image_height))
@@ -180,12 +181,12 @@ class Lcd(ABC):
         # Menu Items
         idx = 0
         x = 0
-        y = 2
+        y = 0
         menu_list = list(sorted(menu_items))
         for i in menu_list:
             if idx is 0:
                 self.menu_draw.text((x, y), "%s" % menu_items[i][Token.NAME], True, self.small_font)
-                x = 8   # indent after first element (back button)
+                x = 1   # indent after first element (back button)
             else:
                 self.menu_draw.text((x, y), "%s %s" % (i, menu_items[i][Token.NAME]), True, self.small_font)
             y += 10
@@ -194,7 +195,7 @@ class Lcd(ABC):
 
     def menu_highlight(self, index):
         scroll_idx = 0
-        highlight = ((index * 10, index * 10 + 8))  # TODO replace 10
+        highlight = ((index * 10, index * 10 + 7))  # TODO replace 10
         num_visible = 3  # TODO
         if index > num_visible:
             scroll_idx = index - num_visible
@@ -259,7 +260,7 @@ class Lcd(ABC):
         if preset != None:
 
             # delimiter
-            delimiter = "/"
+            delimiter = "|"
             x = pb_size + 1
             self.draw[0].text((x, y), delimiter, 1, self.title_font)
 

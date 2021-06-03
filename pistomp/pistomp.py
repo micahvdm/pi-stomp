@@ -87,8 +87,8 @@ class Pistomp(hardware.Hardware):
         script_dir = os.path.dirname(os.path.realpath(__file__))
         self.test_sentinel = os.path.join(script_dir, ".hardware_tests_passed")
         if not os.path.isfile(self.test_sentinel):
-            self.test_pass = False
-            self.test()
+            self.test_pass = True
+#            self.test()
 
         # Create Relay object(s)
         #self.relay = Relay.Relay(RELAY_RESET_PIN, RELAY_SET_PIN)

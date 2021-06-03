@@ -18,17 +18,15 @@
 printf "\n===== Audio card setup =====\n"
 setup/audio/audioinjector-setup.sh
 
-printf "\n===== Modep software module install =====\n"
-patchbox module activate modep
-
 printf "\n===== Mod software tweaks =====\n"
 setup/mod-tweaks/mod-tweaks.sh
 
 printf "\n===== Install pi-stomp package dependencies =====\n"
 setup/pkgs/simple_install.sh
-setup/pkgs/gfxhat_install.sh
 setup/pkgs/lilv_install.sh
-setup/pkgs/mod-ttymidi_install.sh
+
+printf "\n===== Mod software install =====\n"
+setup/mod/install.sh
 
 printf "\n===== Get extra plugins =====\n"
 setup/plugins/build_extra_plugins.sh
@@ -42,8 +40,6 @@ cp setup/sys/bash_aliases ~/.bash_aliases
 
 printf "\n===== Manage services =====\n"
 setup/services/create_services.sh
-setup/services/tweak_services.sh
 setup/services/stop_services.sh
 
 printf "\n===== pi-stomp setup complete =====\n"
-

@@ -1,0 +1,16 @@
+[Unit]
+Description=TouchOSC2MIDI service
+After=network-online.target amidithru.service
+Wants=network-online.target
+BindsTo=amidithru.service network-online.target jack.service
+Conflicts=touchosc2midi.service
+
+[Service]
+ExecStart=/bin/bash /usr/mod/scripts/start_touchosc2midi.sh
+User=root
+Group=root
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

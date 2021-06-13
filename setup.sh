@@ -18,15 +18,16 @@
 printf "\n===== Audio card setup =====\n"
 setup/audio/audioinjector-setup.sh
 
-printf "\n===== Mod software tweaks =====\n"
-setup/mod-tweaks/mod-tweaks.sh
-
 printf "\n===== Install pi-stomp package dependencies =====\n"
 setup/pkgs/simple_install.sh
 setup/pkgs/lilv_install.sh
 
 printf "\n===== Mod software install =====\n"
 setup/mod/install.sh
+
+printf "\n===== Mod software tweaks =====\n" 
+setup/mod-tweaks/mod-tweaks.sh
+
 
 printf "\n===== Get extra plugins =====\n"
 setup/plugins/build_extra_plugins.sh

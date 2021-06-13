@@ -17,9 +17,14 @@
 
 set +e
 
-MODUI_ROOT=/usr/lib/python3/dist-packages/mod
+MODUI_ROOT=/usr/local/lib/python3.7/dist-packages/mod
+#MODUI_ROOT=/usr/lib/python3/dist-packages/mod
 MODUI_HTML=/usr/share/mod/html
 MODEP_SCRIPTS=/usr/mod/scripts
+
+# Fix webserver.py tornado issue (being not compat with python 3.7)
+sed -i -e 's/@web.asynchronous/#@web.asynchronous/g' -e 's/@gen.engine/@gen.coroutine/g' $MODUI_ROOT/webserver.py  
+
 
 sudo patch -b -N -u $MODUI_ROOT/host.py -i setup/mod-tweaks/host.diff
 

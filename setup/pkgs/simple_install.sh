@@ -16,14 +16,13 @@
 # along with pi-stomp.  If not, see <https://www.gnu.org/licenses/>.
 
 # pip3
+sudo apt update
 if (which pip3 > /dev/null); then true; else
   sudo apt-get install --fix-broken --fix-missing -y python3-pip
 fi
 
-sudo apt update
-
-# Tornado
-sudo /usr/bin/pip3 install tornado
+# Tornado (would be nice to not hardcode the version, but mod-ui/host.py complains about v6)
+sudo /usr/bin/pip3 install tornado==4.3
 
 # Pyyml
 sudo /usr/bin/pip3 install pyyaml

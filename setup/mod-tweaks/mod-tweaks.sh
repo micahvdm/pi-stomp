@@ -29,7 +29,7 @@ sudo patch -b -N -u $MODUI_ROOT/session.py -i setup/mod-tweaks/session.diff
 
 sudo patch -b -N -u $MODUI_ROOT/webserver.py -i setup/mod-tweaks/webserver.diff
 
-sudo patch -b -N -u $MODUI_HTML/index.html -i setup/mod-tweaks/index.diff
+#sudo patch -b -N -u $MODUI_HTML/index.html -i setup/mod-tweaks/index.diff
 
 sudo cp setup/mod-tweaks/start_touchosc2midi.sh $MODEP_SCRIPTS
 

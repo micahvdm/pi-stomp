@@ -20,6 +20,11 @@ if (which pip3 > /dev/null); then true; else
   sudo apt-get install --fix-broken --fix-missing -y python3-pip
 fi
 
+sudo apt update
+
+# Tornado (would be nice to not specify the version)
+sudo /usr/bin/pip3 install tornado==4.3
+
 # Pyyml
 sudo /usr/bin/pip3 install pyyaml
 

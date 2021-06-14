@@ -22,9 +22,6 @@ MODUI_ROOT=/usr/local/lib/python3.7/dist-packages/mod
 MODUI_HTML=/usr/share/mod/html
 MODEP_SCRIPTS=/usr/mod/scripts
 
-# Fix webserver.py tornado issue (being not compat with python 3.7)
-sed -i -e 's/@web.asynchronous/#@web.asynchronous/g' -e 's/@gen.engine/@gen.coroutine/g' $MODUI_ROOT/webserver.py  
-
 
 sudo patch -b -N -u $MODUI_ROOT/host.py -i setup/mod-tweaks/host.diff
 
@@ -32,8 +29,12 @@ sudo patch -b -N -u $MODUI_ROOT/session.py -i setup/mod-tweaks/session.diff
 
 sudo patch -b -N -u $MODUI_ROOT/webserver.py -i setup/mod-tweaks/webserver.diff
 
-sudo patch -b -N -u $MODUI_HTML/index.html -i setup/mod-tweaks/index.diff
+#sudo patch -b -N -u $MODUI_HTML/index.html -i setup/mod-tweaks/index.diff
 
 sudo cp setup/mod-tweaks/start_touchosc2midi.sh $MODEP_SCRIPTS
+
+
+# Fix webserver.py tornado issue (being not compat with python 3.7)
+sudo sed -i -e 's/@web.asynchronous/#@web.asynchronous/g' -e 's/@gen.engine/@gen.coroutine/g' $MODUI_ROOT/webserver.py
 
 exit 0

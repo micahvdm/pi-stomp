@@ -1,4 +1,7 @@
-#!/bin/sh
+#!/bin/bash
+
+set -x
+set -e
 
 sudo dpkg -r --force-depends raspberrypi-kernel
 sudo dpkg -i ./raspberrypi-kernel_1.20230405-1_arm64.deb

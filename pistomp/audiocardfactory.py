@@ -48,7 +48,7 @@ class Audiocardfactory:
     def create(self):
         # get the current card
         card_name = self.get_current_card()
-        if card_name == "Zero":
+        if card_name == "IQaudIOCODEC":
             card = pistomp.iqaudiocodec.IQaudioCodec(self.cwd)
         elif card_name == "sndrpihifiberry":
             card = pistomp.hifiberry.Hifiberry(self.cwd)

@@ -29,7 +29,8 @@ sudo bash -c "cat >> /boot/config.txt <<EOF
 
 # enable the sound card (uncomment only one)
 #dtoverlay=audioinjector-wm8731-audio
-dtoverlay=iqaudio-codec
+#dtoverlay=iqaudio-codec
+dtoverlay=rpi-codeczero
 #dtoverlay=hifiberry-dacplusadc
 EOF"
 fi

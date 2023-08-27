@@ -18,9 +18,9 @@
 set -x
 set -e
 
-sudo dpkg -i setup/sys/linux-image-5.15.65-rt49-v8+_5.15.65-rt49-v8+-2_arm64.deb
+sudo dpkg -i setup/sys/linux-image-6.1.47-rt13-v8+_6.1.47-rt13-v8+-4_arm64.deb
 
-KERN=5.15.65-rt49-v8+
+KERN=6.1.47-rt13-v8+
 sudo mkdir -p /boot/$KERN/o/
 sudo cp -d /usr/lib/linux-image-$KERN/overlays/* /boot/$KERN/o/
 sudo cp -dr /usr/lib/linux-image-$KERN/* /boot/$KERN/

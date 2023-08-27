@@ -29,7 +29,7 @@ sudo apt-get -y install virtualenv python3-pip python3-dev build-essential libas
 sudo pip3 install pyserial==3.0 pystache==0.5.4 aggdraw==1.3.11 scandir backports.shutil-get-terminal-size
 sudo pip3 install pycrypto
 sudo pip3 install tornado==4.3
-sudo pip3 install Pillow==8.4.0
+sudo pip3 install Pillow==9.4.0
 sudo pip3 install cython
 
 #Install Mod Software

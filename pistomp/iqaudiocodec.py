@@ -22,7 +22,7 @@ class IQaudioCodec(audiocard.Audiocard):
     def __init__(self, cwd):
         super(IQaudioCodec, self).__init__(cwd)
         self.initial_config_file = os.path.join(cwd, 'setup', 'audio', 'iqaudiocodec.state')
-        self.initial_config_name = 'IQaudIOCODEC'
+        self.initial_config_name = 'Zero'
         self.CAPTURE_VOLUME = 'Aux'
         self.MASTER = 'Headphone'  # Changed to headphone to allow digital control of output.
         self.DAC_EQ = "DAC EQ"

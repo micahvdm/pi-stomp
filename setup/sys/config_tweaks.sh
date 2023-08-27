@@ -39,7 +39,6 @@ dtoverlay=pi3-disable-bt
 dtoverlay=pi3-miniuart-bt
 dtoverlay=midi-uart0
 dtoverlay=dwc2,dr_mode=host
-gpu_mem=16
 EOF"
 fi
 

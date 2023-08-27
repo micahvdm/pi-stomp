@@ -18,7 +18,7 @@
 set -x
 set -e
 
-sudo dpkg -i setup/sys/linux-image-6.1.47-rt13-v8+_6.1.47-rt13-v8+-4_arm64.deb
+sudo dpkg -i setup/sys/linux-image-6.1.47-rt13-v8+_6.1.47-rt13-v8+-2_arm64.deb
 
 KERN=6.1.47-rt13-v8+
 sudo mkdir -p /boot/$KERN/o/

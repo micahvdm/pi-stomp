@@ -18,7 +18,7 @@
 set -x
 
 #Install Dependancies
-sudo apt-get -y install virtualenv python3-pip python3-dev build-essential libasound2-dev libjack-jackd2-dev liblilv-dev libjpeg-dev \
+sudo apt-get -y install virtualenv python3-pip python3-dev python3-zeroconf build-essential libasound2-dev libjack-jackd2-dev liblilv-dev libjpeg-dev \
                         zlib1g-dev cmake debhelper dh-autoreconf dh-python gperf intltool ladspa-sdk libarmadillo-dev libavahi-gobject-dev \
                         libavcodec-dev libavutil-dev libbluetooth-dev libboost-dev libeigen3-dev libfftw3-dev libglib2.0-dev libglibmm-2.4-dev \
                         libgtk2.0-dev libgtkmm-2.4-dev liblrdf0-dev libsamplerate0-dev libsigc++-2.0-dev libsndfile1-dev libzita-convolver-dev \

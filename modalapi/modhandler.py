@@ -462,6 +462,16 @@ class Modhandler(Handler):
         else:
             self.system_disable_eq()
 
+    def system_toggle_hotspot(self, arg):
+        hotspot_status = not self.wifi_manager._is_hotspot_active
+        if hotspot_status:
+            self.wifi_manager.enable_hotspot()
+        else:
+            self.wifi_manager.disable_hotspot()
+
+    def configure_wifi_credentials(self, ssid, password):
+        self.wifi_manager.configure_wifi(ssid, password)
+
     def system_menu_input_gain(self, arg):
         value = self.audiocard.get_volume_parameter(self.audiocard.CAPTURE_VOLUME)
         self.lcd.draw_audio_parameter_dialog("Input Gain", self.audiocard.CAPTURE_VOLUME, value,

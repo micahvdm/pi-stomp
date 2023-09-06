@@ -99,6 +99,10 @@ class Lcd(abstract_lcd.Lcd):
         self.w_splash = None
         self.w_info_msg = None
 
+        # wifi
+        self.ssid = None
+        self.password = None
+
         # panels
         self.pstack = PanelStack(display, image_format='RGB', use_dimming=False)  # TODO use dimming without loosing FS's
         self.splash_panel = Panel(box=Box.xywh(0, 0, self.display_width, self.display_height))
@@ -183,10 +187,16 @@ class Lcd(abstract_lcd.Lcd):
                        action=lambda x, y: self.pstack.pop_panel(d), align=WidgetAlign.NONE, name='cancel_btn',
                        edit_message='WiFi SSID')
         d.add_sel_widget(b)
+        self.ssid = b.edit_message
         b = TextWidget(box=Box.xywh(0, 30, 0, 0), text='password123', prompt='Password :', parent=d, outline=1,
                        sel_width=3, outline_radius=5,
                        action=lambda x, y: self.pstack.pop_panel(d), align=WidgetAlign.NONE, name='cancel_btn',
                        edit_message='Password')
+        d.add_sel_widget(b)
+        self.password = b.edit_message
+
+        b = TextWidget(box=Box.xywh(0, 60, 0, 0), text='Hotspot', parent=d, outline=1, sel_width=3, outline_radius=5,
+                       action=self.handler.system_toggle_hotspot, align=WidgetAlign.NONE)
         d.add_sel_widget(b)
 
         b = TextWidget(box=Box.xywh(0, 90, 0, 0), text='Cancel', parent=d, outline=1, sel_width=3, outline_radius=5,
@@ -195,6 +205,7 @@ class Lcd(abstract_lcd.Lcd):
         b = TextWidget(box=Box.xywh(80, 90, 0, 0), text='Ok', parent=d, outline=1, sel_width=3, outline_radius=5,
                        action=lambda x, y: self.pstack.pop_panel(d), align=WidgetAlign.NONE, name='ok_btn')
         d.add_sel_widget(b)
+        self.handler.configure_wifi_credentials(self.ssid, self.password)
 
         self.pstack.push_panel(d)
         d.refresh()

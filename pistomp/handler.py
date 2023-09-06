@@ -74,3 +74,9 @@ class Handler:
 
     def set_mod_tap_tempo(self, bpm):
         raise NotImplementedError()
+
+    def system_toggle_hotspot(self, arg):
+        raise NotImplementedError()
+
+    def configure_wifi_credentials(self, ssid, password):
+        raise NotImplementedError()

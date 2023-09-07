@@ -15,11 +15,12 @@
 # You should have received a copy of the GNU General Public License
 # along with pi-stomp.  If not, see <https://www.gnu.org/licenses/>.
 
-if ifconfig wlan0 | grep -q "inet addr"
+if iwconfig wlan0 | grep -q "ESSID:"
 then
-    echo 'connected'
+    SSID=`iwconfig wlan0 | grep ESSID | awk -F: '{print $2}' | sed 's/\"//g'`
+    echo "Connected to ${SSID}"
 else
-    echo 'not connected, starting hotspot'
+    echo 'not connected, starting wifi hotspot mode'
     sudo systemctl enable wifi-hotspot
     sudo systemctl start wifi-hotspot
 fi

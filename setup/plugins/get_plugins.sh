@@ -18,5 +18,5 @@
 set -x
 
 wget https://www.treefallsound.com/downloads/lv2plugins.tar.gz
-tar -zxf lv2plugins.tar.gz -C $HOME
+tar -zxf lv2plugins.tar.gz -C ${ROOTFS_DIR}/home/${FIRST_USER_NAME}/
 rm lv2plugins.tar.gz

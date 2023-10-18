@@ -42,4 +42,4 @@ EOF"
 
 #Turn off raspi-config service and set performance governor
 #sudo rcconf --off raspi-config
-sudo bash -c "echo performance | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
+#sudo bash -c "echo performance | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"

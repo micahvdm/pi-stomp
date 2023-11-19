@@ -195,11 +195,11 @@ class Lcd(abstract_lcd.Lcd):
         elif event == InputEvent.LONG_CLICK:
             self.handler.system_toggle_eq(None)
 
-    def toggle_hotspot(self, event, widget):
-        if event == InputEvent.CLICK:
-            self.draw_wifi_dialog(event, widget)
-        elif event == InputEvent.LONG_CLICK:
-            self.handler.system_toggle_hotspot(wifi_status)
+    # def toggle_hotspot(self, event, widget):
+    #     if event == InputEvent.CLICK:
+    #         self.draw_wifi_dialog(event, widget)
+    #     elif event == InputEvent.LONG_CLICK:
+    #         self.handler.system_toggle_hotspot(wifi_status)
 
     def draw_bypass_preference(self):
         pref = self.handler.settings.get_setting(Token.BYPASS)
@@ -222,9 +222,9 @@ class Lcd(abstract_lcd.Lcd):
         d.add_sel_widget(self.w_wifi_pass)
         self.password = self.w_wifi_pass.edit_message
         
-        # b = TextWidget(box=Box.xywh(0, 60, 0, 0), text=self.hotspot_text, parent=d, outline=1, sel_width=3, outline_radius=5,
-        #            action=self.update_hotspot_button, align=WidgetAlign.NONE)
-        # d.add_sel_widget(b)
+        b = TextWidget(box=Box.xywh(0, 60, 0, 0), text='Hotspot', parent=d, outline=1, sel_width=3, outline_radius=5,
+                   action=self.handler.system_toggle_hotspot, align=WidgetAlign.NONE)
+        d.add_sel_widget(b)
 
         b = TextWidget(box=Box.xywh(0, 90, 0, 0), text='Cancel', parent=d, outline=1, sel_width=3, outline_radius=5,
                    action=lambda x, y: self.pstack.pop_panel(d), align=WidgetAlign.NONE, name='cancel_btn')

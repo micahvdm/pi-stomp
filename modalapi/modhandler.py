@@ -501,10 +501,10 @@ class Modhandler(Handler):
         self.lcd.update_eq(self.eq_status)
 
     def system_toggle_hotspot(self, arg, wifi_status):
-        if util.DICT_GET(wifi_status, 'hotspot_active'):
-            self.wifi_manager.disable_hotspot()
-        if util.DICT_GET(wifi_status, 'wifi_connected'):
+        if self.wifi_status:
             self.wifi_manager.enable_hotspot()
+        else:
+            self.wifi_manager.disable_hotspot()
 
     def configure_wifi_credentials(self, ssid, password):
         self.wifi_manager.configure_wifi(ssid, password)

@@ -500,7 +500,7 @@ class Modhandler(Handler):
             self.system_disable_eq()
         self.lcd.update_eq(self.eq_status)
 
-    def system_toggle_hotspot(self, wifi_status):
+    def system_toggle_hotspot(self, wifi_status, arg):
         if util.DICT_GET(wifi_status, 'hotspot_active'):
             self.wifi_manager.disable_hotspot()
         if util.DICT_GET(wifi_status, 'wifi_connected'):

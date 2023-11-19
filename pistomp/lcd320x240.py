@@ -169,7 +169,7 @@ class Lcd(abstract_lcd.Lcd):
         if self.w_wifi is not None:
             return
         self.w_wifi = ImageWidget(box=Box.xywh(210, 0, 20, 20), image_path=os.path.join(self.imagedir,
-                                  'wifi_gray.png'), parent=self.main_panel, action=self.toggle_hotspot)
+                                  'wifi_gray.png'), parent=self.main_panel, action=self.draw_wifi_dialog)
         self.main_panel.add_sel_widget(self.w_wifi)
         if self.w_eq is not None:
             return

@@ -114,6 +114,8 @@ class Lcd(abstract_lcd.Lcd):
 
         self.splash_show(True)
 
+        self.wifi_status = {}
+
     #
     # Navigation
     #

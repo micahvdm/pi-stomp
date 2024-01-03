@@ -27,7 +27,7 @@ sudo apt-get -y install virtualenv python3-pip python3-dev python3-zeroconf buil
 
 #Install Python Dependancies
 sudo pip3 install pyserial==3.0 pystache==0.5.4 aggdraw==1.3.11 scandir backports.shutil-get-terminal-size
-sudo pip3 install pycrypto
+sudo pip3 install pycryptodomex==3.18.0
 sudo pip3 install tornado==4.3
 sudo pip3 install Pillow==9.4.0
 sudo pip3 install cython

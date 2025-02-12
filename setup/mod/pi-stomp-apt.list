@@ -1,1 +1,0 @@
-deb [arch=arm64 trusted=yes] https://micahvdm.github.io/pi-stomp-apt stable main
